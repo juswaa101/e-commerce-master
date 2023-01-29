@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Admin Dashboard</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #fff;
+      }
+
+      .side-navbar {
+        width: 250px;
+        height: 100%;
+        position: fixed;
+        margin-left: -300px;
+        background-color: #5765c1;
+        transition: 0.5s;
+      }
+
+      .nav-link:active,
+      .nav-link:focus,
+      .nav-link:hover {
+        background-color: #ffffff26;
+      }
+
+      .my-container {
+        transition: 0.4s;
+      }
+
+      .active-nav {
+        margin-left: 0;
+      }
+
+      /* for main section */
+      .active-cont {
+        margin-left: 250px;
+      }
+
+      #menu-btn {
+        background-color: #5765c1;
+        color: #fff;
+        margin-left: -62px;
+      }
+
+      .my-container input {
+        border-radius: 2rem;
+        padding: 2px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column"
+      id="sidebar"
+    >
+      <ul class="nav flex-column text-white w-100">
+        <a href="/adminDashboard" class="nav-link h3 text-white my-2">
+          PC <b>Express</b>
+        </a>
+        <li>
+          <a
+            class="nav-link"
+            href="/adminDashboard"
+            style="text-decoration: none; color: white; background: #3e4ca7"
+          >
+            <i class="bx bxs-dashboard"></i>
+            <span class="mx-2">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href="/adminParts"
+            style="text-decoration: none; color: white"
+          >
+            <i class="bx bxs-cart-add"></i>
+            <span class="mx-2">Products</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href="/adminCategories"
+            style="text-decoration: none; color: white"
+          >
+            <i class="bx bxs-book"></i>
+            <span class="mx-2">Categories</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href="/adminOrders"
+            style="text-decoration: none; color: white"
+          >
+            <i class="bx bxs-shopping-bags"></i>
+            <span class="mx-2">Orders</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href="/adminUsers"
+            style="text-decoration: none; color: white ;"
+          >
+            <i class="bx bxs-user-check"></i>
+            <span class="mx-2">Users</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="p-1 my-container active-cont">
+      <nav class="navbar top-navbar navbar-light bg-light px-5">
+        <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
+        <a href="/logout"><i class='bx bx-log-out'></i> </a>
+      </nav>
+      <br />
+
+      <div class="row" style="padding: 0.5em">
+        <div class="col-md-3">
+          <div
+            class="container"
+            style="
+              padding: 0.5em;
+              border: #5765c1 solid 2px;
+              border-radius: 3px;
+            "
+          >
+            <center>
+              <a href="/adminUsers" style="text-decoration: none; color: black">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAAXNSR0IArs4c6QAAAqlJREFUWEftmN1xFTEMRr9UQKgAqCCkAqACoAJIBZAKgAqACiAVABUAFQAVBCogqQDmMOsZRVmvZO3ehwzxzD5d2TrWn6W7pyuy9q4Ip/5b0HuS7k5e+i7p61Ye28KityW9k3S/A/VF0pGkn2ug14I+k/RS0n4AcTbJva3CrgEF8MWg4lcT8OA2lZOJOPzmtH2S9EYSsclChssQt3YdGpk0cNWiQLakQdnxBDmn+Lmk1+YHLgLs0KqAkjSfjZYTSU8DrR8lPTQyDySRZOlVAfUWuimJZFlaJNtvI7DkgdlzKqDvJT2ZTvslifKUWZSnW5NgxgsXzqyA4rKWIBT0Xv308NV9/86pgPqylD3jjyEfLlNZJdY6jyR9GEwMv+exJBIsvSqgxOSp0UAi3VlIKBIJeft6IT/0pFZAYfTuRynvuS85xC99gE24YbdXY7QZk8J94HwHqH2ZfKL9cA/FTl3fDudlIs5ayYmUUsqI1XaRSH51ebIHEHeEAV3U0qJrQi56GLpnVGPUH4iL22cbZ0KhfUMW9MJbga6CyGzeAhQL3giUnVdjs51bAcXFdEIkRvadb/ooYyQgb/1QUo2AAkVHH7V0GU8iQ3NDTU0V/iwo7qUHjWajLGSTowrQm4bWzYD6d7opoXijoH1LkFy0ff6RYF/49kegc5YkMXD/UFNhbsHFcbtNwNCyESjNhE0YBjggy4V7AiaEgLXjCbFKszK7lkD9yFF+pxdiwvcLNDZc4NJaAmXGsclTGnOD7PJjd9eqPVB/QKk1S5YA3zLOGqQH6jcPj7dJSMT8+D1rlB6onTQ5LEq6Aa5ZUTtP0WmRHxdWD8BOjLtIIs9hk2p2ss2AjozEVcuGo3QPlD+7bF95yRVVos6+UN+uY2+z+1yDbmbK6aBri25t0b9doH4r4RJV6gAAAABJRU5ErkJggg=="
+                />
+                <h2>Users</h2>
+                <h6><% user_count.forEach(element => { %> <%= element.user_count %> <% }) %></h6>
+              </a>
+            </center>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div
+            class="container"
+            style="
+              padding: 0.5em;
+              border: #5765c1 solid 2px;
+              border-radius: 3px;
+            "
+          >
+            <center>
+              <a href="/adminParts" style="text-decoration: none; color: black">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAAXNSR0IArs4c6QAAAjxJREFUWEftmDFMFEEUhr/rsEIqpEISEko0UmkhJvRIDYnQSaeRGsQao1TaQYG99CRAARUGKElIoFM6rLQkP7kls3O7ezO3b5dcci+54jIz7337z7z3ZrdBl1ijSzjpgVrvVNcqOg+88dTYA7aBE2uVYvz5in4EVjIcXAOv7hM2FFTsUvRpjAqWc31Qbb1+iT0Exp3/UlVHoXZrl0yPgQuHSmf1de2UEFRHfwLTDtwIcFk3bDtFxTMJ7Dpgq4CSrlYLARWQFBxukqkCVF2qlAcS5M5CQd8BX2qVEBaAzSRmKKiyX6r21wj7HvgaC6r5ejq/a1XJPQDomN1aqKKa+wQ4rpKsqAzGgMqPDvnLGmBnAJXF6GRKFqhrbVQM+hdQTqQsVlEt1rmpMqnWAVWZ0qB5NywroXXxaanTnSjq938rQPk5bSZti89OQOXE7/9WsKnaWSaZkrV+/7cCTdVOC1D5cPu/BWjhFbLTrReYdf9vqZ1Wilr2/8zaaQUqP1b9P7N2WoJa9f/M2mkJKl96h2rpJBHZpatcqq9nrS2TTBEs5adagc4Co8ABsBOANQW8AM6BHwHzo+6jef62AIEmtgR8Lgj+AVhzxgU61w62rKL6OOFfIK6ARwWB/wCD3riSUn0+18qCPm9utxvgP/CgIOY/oM8b1zE4rBJUvo+AZ06Q78BiQdBvwFtn/BcwUfXWy/8QsAyMAfv++3gOgL4Y6pXmDPgE/K4DtF0Mk/GyZ9QEIsRJDzREpZg5XaPoDfO3TysoBeZhAAAAAElFTkSuQmCC"
+                />
+                <h2>Products</h2>
+                <h6><% product_count.forEach(element => { %> <%= element.product_count %> <% }) %></h6>
+              </a>
+            </center>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div
+            class="container"
+            style="
+              padding: 0.5em;
+              border: #5765c1 solid 2px;
+              border-radius: 3px;
+            "
+          >
+            <center>
+              <a
+                href="/adminOrders"
+                style="text-decoration: none; color: black"
+              >
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAAXNSR0IArs4c6QAAAiBJREFUWEftmIExBEEQRf9FQAaIABEgAxkgAkSADGSACBABMiACQiAC6qlZ1dc7szuz9tae2qm6uqq72Z43f7p7unemJRmzJeHUBNr3SU2KTooaBXYlHUvie7UnZa4lHf3GlvdRwF57BLRsG5LeusJ60ENJV12NtTy3J+mxq20Pei7prKuxCVSq3UyLVPRZ0rtTHVe4yfHdIY8+5RnA479sJDnGAAockNtjAX1xR78uac3AnUq6TMEOqahPT4Ci5EqAwwXItd6Pv//+S1DW98FLYJHLa+OvQSv/3DRk0YthDKDUFA8GNBpYYwCFkaLloCmwhgQtuZlrgTVWUDY1l67GDHoRssLg6ank6Jk7gZYq1jb/fyiaakXuJZ2EupEETfFgb5M2dfj/I9ggZ9KbYa+pm2iMegoFmjs7WMB3o/42yQGNVUcUzjuJhyn7fmrU2JsSr+pTaJ29vc8cupY7PNVR1IqT1Csdu1NaXMovO7zybCbWYdqjpa/n2O3wVycBdBer9lOgfqd2EdyAlnq/reIJC1a+zDFSGVX1pncf4sDanNtRCpQHbt3uUZbPVsRnU3YIOt662IHybBY7dhRV+N5gytFzFwAIJW3LEXNt2hQPnqUok/BD/KUpDTUeV1gJAOykYIEkgIu6UL9bFMFf/fGRsvg92YxFZAMG6Eo5wPj4AIsmk5IXuTh/1ZA17r4wbWVNLwHNMrioSRNo38oujaJfXWh5K0odYT0AAAAASUVORK5CYII="
+                />
+                <h2>Orders</h2>
+                <h6><% orders_count.forEach(element => { %> <%= element.orders_count %> <% }) %></h6>
+              </a>
+            </center>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div
+            class="container"
+            style="
+              padding: 0.5em;
+              border: #5765c1 solid 2px;
+              border-radius: 3px;
+            "
+          >
+            <center>
+              <a
+                href="/adminCompleted"
+                style="text-decoration: none; color: black"
+              >
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAAXNSR0IArs4c6QAAAglJREFUWEftmOExBEEQhd9FQAaIABGQASIgA0SACJABGZABGZABGRAB9anpq7mu2d2btde3V3XzZ+uuZna+6un3umcnWpExWRFOrSzooaSDkUT5VdKLsfiIXku6GgnojSR4/sYadIBTaY2of/9P9sfMwgFAeIVPtUZxd6l+DZpOZGkRPZO0lSA+JT10pMjSQPE982F8EF9uG+Ggm5KOkji2E9mHpAtJzy2koaB3ks5bYAA+kfRWmBMGyua7c1jVl6QdSTzzEQLaVG7JTYbvGR4lIbZw0Dya3ykfc5WTt8wxFyiJKySieTG4T6A+C1B9rvxpkxHpo+TbRtqQyCEYhFMzQiLKMZ86KoBNMDz5jT2VFM/SEFD8EgCLalskKQSXBeAQUMD2JOGj89wKiPC+S48wUIsiwMcJHLUziLgp3uZ5iwoHbTp2YJ+yooDYMH4bIaBsYhY1cxFz1L7E5j1wCCjRsaMl/7Cn6a0xwVKJbiVZOnjTDwEtlVCzJDhLLR7KJ8KhR89m8zYlzH1PYguv9WzIkRLZtjaPeU0lNuTo88igbuyJRjm/igCC6n17F3703pZGfxUxYFSeX0VGe7mr6ZzCmpJaqNL8cDH1hV4IaF+YmnWDfHuq2bDv3N6gNZWnL5yt4yaAFxdH19c8Kg+LzXL+C9O0noJAYWi8c3WBLgqs+r1r0OqQdSz4BVxEpyulwKjGAAAAAElFTkSuQmCC"
+                />
+                <h2>Completed</h2>
+                <h6><% orders_compeleted_count.forEach(element => { %> <%= element.orders_completed_count %> <% }) %></h6>
+              </a>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <img
+        src="https://www.amkette.com/wp-content/uploads/2022/06/blogpost_accessories_1-min.png"
+        class="d-block w-100"
+        style="border-radius: 2px"
+      />
+
+      <!-- <div class="footer" style="color: #fff">
+        <center>
+          <div class="devs" style="background-color: #5765c1">
+            <h3>Developers</h3>
+            <table class="text-center">
+              <td style="padding: 1em">
+                <a
+                  href="https://www.facebook.com/joshua.yaacoub33"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: white; text-decoration: none"
+                >
+                  <img
+                    src="https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-1/319555576_2574943289313631_3793376125912256894_n.jpg?stp=dst-jpg_s480x480&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeH5q_L0wbU8zgNRh70FBx24UH3OmT0J3jNQfc6ZPQneM6ZNyMpoe6iBaO_7iXcCw4dgcWt7w7PlvHEBBIvQNmnu&_nc_ohc=53dKRncnK8UAX8AAsVr&_nc_ht=scontent.fmnl17-1.fna&oh=00_AfBXJr1ZC_LgrLfYxUA53RsqhjLqK8OOPU0p3wrAKrF28A&oe=63CCCA3D"
+                    width="50px"
+                    height="50px"
+                    style="border-radius: 50px"
+                  />
+                  <p>Joshua Yaacoub</p>
+                </a>
+              </td>
+
+              <td style="padding: 1em">
+                <a
+                  href="https://www.facebook.com/Aylvee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: white; text-decoration: none"
+                >
+                  <img
+                    src="https://scontent.fmnl17-3.fna.fbcdn.net/v/t39.30808-6/317981242_3298220570444697_8711803195331308924_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHPZ-2kaS03BEyI3r24vreuAvQJGRtAXk0C9AkZG0BeTTSQxrmATNqhbvZtbybPNVgwbh3vFtNnfd9F88GZeapM&_nc_ohc=j0O4QGE8i-IAX8xMIBF&_nc_ht=scontent.fmnl17-3.fna&oh=00_AfB4bL-TR6g4HHJCDuY8YCIWgqyGeBXaOAlnwXQ68U8ONA&oe=63CCF5EA"
+                    width="50px"
+                    height="50px"
+                    style="border-radius: 50px"
+                  />
+                  <p>Aisle Lush Valdez</p>
+                </a>
+              </td>
+
+              <td style="padding: 1em">
+                <a
+                  href="https://www.facebook.com/Louie.Catabay18/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: white; text-decoration: none"
+                >
+                  <img
+                    src="https://scontent.fmnl17-4.fna.fbcdn.net/v/t39.30808-6/308628527_5225157554280058_4749364279630053735_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHx7MNK1evKVscoGTSDWZoErlLsLVpo5kquUuwtWmjmSv87VyMdt7OA5WgqH_xm0T3FwYz4SWSwRGcAU6lEjFiY&_nc_ohc=aCrqf0hpgkAAX-w4Uae&_nc_ht=scontent.fmnl17-4.fna&oh=00_AfBbN2P-w4LUN5pMd5zAsJji3x3juFOjUEo5pu5AJrmeBA&oe=63CE1559"
+                    width="50px"
+                    height="50px"
+                    style="border-radius: 50px"
+                  />
+                  <br />
+                  <p>Louie Catabay</p>
+                </a>
+              </td>
+            </table>
+            <hr style="border: solid 1px white" />
+            Copyright © 2023 All Rights Reserved.
+          </div>
+        </center>
+      </div> -->
+    </div>
+  </body>
+  <script>
+    var menu_btn = document.querySelector("#menu-btn");
+    var sidebar = document.querySelector("#sidebar");
+    var container = document.querySelector(".my-container");
+    menu_btn.addEventListener("click", () => {
+      sidebar.classList.toggle("active-nav");
+      container.classList.toggle("active-cont");
+    });
+  </script>
+</html>
