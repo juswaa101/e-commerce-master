@@ -14,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-  <title>All Products</title>
+  <title>PC Express</title>
 
   <style>
     body {
@@ -125,12 +125,11 @@
 
     #page-container {
       position: relative;
-      /* min-height: 100vh; */
+      min-height: 100vh;
     }
 
     #content-wrap {
       padding-bottom: 2.5rem;
-      text-align: center;
     }
 
     .footer {
@@ -155,7 +154,6 @@
       transform: scale(1.5);
     }
   </style>
-
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a href="/" class="navbar-brand">PC <b>Express</b></a>
@@ -165,13 +163,12 @@
 
   <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
     <div class="navbar-nav">
-      <a href="/" class="nav-item nav-link ">Home</a>
-      <a href="/products" class="nav-item nav-link active">Products</a>
+      <a href="/" class="nav-item nav-link">Home</a>
+      <a href="/products" class="nav-item nav-link">Products</a>
       <% if (typeof name !="undefined" ) { %>
         <a href="/orders" class="nav-item nav-link">Orders</a>
         <% } %>
     </div>
-
     <form class="navbar-form form-inline" method="post" action="/searchProducts">
       <div class="input-group">
         <input type="text" class="form-control" name="search" placeholder="Search via description">
@@ -194,48 +191,62 @@
   </div>
 </nav>
 <br>
-<h3 style="margin-left: 50px;">My Carts</h3>
-<div class="row" style="margin:2em; padding-bottom: 2.5em; position: relative;">
-  <% if(cart.length !=0) { %>
-    <% cart.forEach(element=> { %>
-      <div class="col-md-3 mt-4" style="margin-top: 5px;">
-        <div class="card" style="width: 18rem;">
-          <div class="zoom">
-            <img src="/images/<%= element.img %>" class="card-img-top">
-          </div>
-          <center>
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= element.item_name %>
-              </h5>
-              <p class="card-text">₱<%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: 'TRY'
-                  }).format(element.price).slice(4) %>
-              </p>
-            </div>
-          </center>
-          <div class="card-footer">
-            <button class="btn btn-outline-primary orderBtn" data-id="<%= element.cid %>"
-              data-product-id="<%= element.pid %>" data-user-id="<%= element.uid %>">Order</button>
-            <button class="btn btn-outline-danger removeCartBtn" data-id="<%= element.cid %>">Remove to Cart</button>
-          </div>
-        </div>
-      </div>
-      <% }) %>
-        <% } else { %>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 d-flex justify-content-center align-items-center">
-                <h1 class="text text-danger">Cart is Empty</h1>
-              </div>
-              <div class="col-md-12 d-flex justify-content-center align-items-center">
-                <img src="/images/cart_empty.png" height="350" width="400">
-              </div>
-            </div>
-          </div>
-          <% } %>
-</div>
-<br>
 <div id="page-container">
+  <div id="content-wrap">
+    <h1 class="d-flex justify-content-center align-items-cente mt-3">Result</h1>
+    <div class="row" style="margin:2em; padding-bottom: 2.5em; position: relative; min-height: 100vh;">
+      <% if (typeof products !="undefined" ) { %>
+        <% if(products.length !=0) { %>
+          <% products.forEach(element=> { %>
+            <div class="col-md-3 mt-2" style="margin-top: 5px;">
+              <div class="card" style="width: 18rem;">
+                <div class="zoom">
+                  <img src="images/<%= element.img %>" class="card-img-top">
+                </div>
+                <center>
+                  <div class="card-body">
+                    <a style="text-decoration: none; color: #000;" href="/viewProduct/<%= element.id %>">
+                      <h5 class="card-title">
+                        <%= element.item_name %>
+                      </h5>
+                      <p class="card-text"> ₱<%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: 'TRY'
+                          }).format(element.price).slice(4) %>
+                      </p>
+                      <!-- Stock Left:<small class="text text-muted"><%= element.qty %></small> -->
+                      <button href="/viewProduct/<%= element.id %>" class="btn btn-secondary"> View Details</button>
+                    </a>
+                  </div>
+                </center>
+              </div>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center align-items-center">
+                      <h1 class="text text-danger">No Products Result</h1>
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-center align-items-center">
+                      <img src="/images/search_not_found.png" height="400" width="400">
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+            <% } else { %>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 d-flex justify-content-center align-items-center">
+                    <h1 class="text text-danger">No Products Result</h1>
+                  </div>
+                  <div class="col-md-12 d-flex justify-content-center align-items-center">
+                    <img src="/images/search_not_found.png" height="400" width="400">
+                  </div>
+                </div>
+              </div>
+            <% } %>
+    </div>
+  </div>
+
   <div class="footer">
     <center>
       <div class="devs" style="background-color: #5765c1;">
@@ -278,18 +289,9 @@
     </center>
   </div>
 </div>
-
-
 </body>
 
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-<script src="/js/cart.js"></script>
 
 <% if (typeof user[0] !="undefined" ) { %>
   <script>

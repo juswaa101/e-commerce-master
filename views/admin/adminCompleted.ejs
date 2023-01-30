@@ -21,7 +21,7 @@
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     
-    <title>Completed Orders </title>
+    <title>Approved Orders </title>
 
 <style>
     * {
@@ -142,7 +142,7 @@
           <a style="text-decoration: none; color: #000;" href="/adminShipped">Shipped Orders</a>
         </td> -->
         <td style="padding: 1em;">
-          <a style="text-decoration: none; color: #000;  border-bottom:#5765c1 2px solid; border-radius:5px;" href="/adminCompleted">Completed Orders</a>
+          <a style="text-decoration: none; color: #000;  border-bottom:#5765c1 2px solid; border-radius:5px;" href="/adminCompleted">Approved Orders</a>
         </td>
         <td >
           <a style="text-decoration:none; color: #000; " href="/adminCancelled">Cancelled Orders</a>
@@ -180,7 +180,7 @@
                 <td><%= element.full_name %></td>
                 <td><%= new Date(element.order_placed_at).toLocaleString() %></td>
                 <td><%= 1 %></td>
-                <td class="text-success">Complete</td>
+                <td class="text-success">Approved</td>
               </tr>
             <% }) %>
           </tbody>

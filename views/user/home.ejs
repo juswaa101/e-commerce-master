@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,256 +13,305 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    
+
   <title>PC Express</title>
 
   <style>
     body {
-	font-family: 'Varela Round', sans-serif;
-}
-.form-control {
-	box-shadow: none;
-	border-radius: 4px;
-}	
-.navbar {
-	background: #fff;
-	padding-left: 16px;
-	padding-right: 16px;
-	border-bottom: 1px solid #dfe3e8;
-	border-radius: 0;
-}
-.nav-link img {
-	border-radius: 50%;
-	width: 36px;
-	height: 36px;
-	margin: -8px 0;
-	float: left;
-	margin-right: 10px;
-}
-.navbar .navbar-brand {
-	padding-left: 0;
-	font-size: 20px;
-	padding-right: 50px;
-}
-.navbar .navbar-brand b {
-	color: #5c6ac4;		
-}
-.navbar .form-inline {
-	display: inline-block;
-}
-.navbar .navbar-nav {
-	position: relative;
-}
-.navbar a, .navbar a:active {
-	color: #888;
-	font-size: 15px;
-	background: transparent;
-}
-.search-box {
-	position: relative;
-}	
-.search-box input {
-	padding-right: 35px;
-	border-color: #dfe3e8;
-	border-radius: 4px !important;
-	box-shadow: none
-}
-.search-box .input-group-text {
-	min-width: 35px;
-	border: none;
-	background: transparent;
-	position: absolute;
-	right: 0;
-	z-index: 9;
-	padding: 7px;
-	height: 100%;
-}
-.search-box i {
-	color: #a0a5b1;
-	font-size: 19px;
-}
-.navbar .btn-primary, .navbar .btn-primary:active {
-	color: #fff;
-	background: #5c6ac4 !important;
-	padding-top: 8px;
-	padding-bottom: 6px;
-	border-radius: 4px;
-	vertical-align: middle;
-	border: none;
-	min-width: 120px;
-	margin: 2px 0;
-}
-.navbar .btn-primary:hover, .navbar .btn-primary:focus {		
-	color: #fff;
-	background: #5765c1 !important;
-}
+      font-family: 'Varela Round', sans-serif;
+    }
 
-.search-box .btn span {
-	transform: scale(0.9);
-	display: inline-block;
-}
-.navbar .nav-item i {
-	font-size: 18px;
-}
+    .form-control {
+      box-shadow: none;
+      border-radius: 4px;
+    }
 
-#page-container {
-  position: relative;
-  min-height: 100vh;
-}
-#content-wrap {
-  padding-bottom: 2.5rem;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-  background-color: #5765c1;
-  color: white;
-  padding-top: 1em;
-}
+    .navbar {
+      background: #fff;
+      padding-left: 16px;
+      padding-right: 16px;
+      border-bottom: 1px solid #dfe3e8;
+      border-radius: 0;
+    }
+
+    .nav-link img {
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      margin: -8px 0;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .navbar .navbar-brand {
+      padding-left: 0;
+      font-size: 20px;
+      padding-right: 50px;
+    }
+
+    .navbar .navbar-brand b {
+      color: #5c6ac4;
+    }
+
+    .navbar .form-inline {
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+      position: relative;
+    }
+
+    .navbar a,
+    .navbar a:active {
+      color: #888;
+      font-size: 15px;
+      background: transparent;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      padding-right: 35px;
+      border-color: #dfe3e8;
+      border-radius: 4px !important;
+      box-shadow: none
+    }
+
+    .search-box .input-group-text {
+      min-width: 35px;
+      border: none;
+      background: transparent;
+      position: absolute;
+      right: 0;
+      z-index: 9;
+      padding: 7px;
+      height: 100%;
+    }
+
+    .search-box i {
+      color: #a0a5b1;
+      font-size: 19px;
+    }
+
+    .navbar .btn-primary,
+    .navbar .btn-primary:active {
+      color: #fff;
+      background: #5c6ac4 !important;
+      padding-top: 8px;
+      padding-bottom: 6px;
+      border-radius: 4px;
+      vertical-align: middle;
+      border: none;
+      min-width: 120px;
+      margin: 2px 0;
+    }
+
+    .navbar .btn-primary:hover,
+    .navbar .btn-primary:focus {
+      color: #fff;
+      background: #5765c1 !important;
+    }
+
+    .search-box .btn span {
+      transform: scale(0.9);
+      display: inline-block;
+    }
+
+    .navbar .nav-item i {
+      font-size: 18px;
+    }
+
+    #page-container {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    #content-wrap {
+      padding-bottom: 2.5rem;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2.5rem;
+      background-color: #5765c1;
+      color: white;
+      padding-top: 1em;
+    }
+
+    .zoom {
+      transition: transform .2s;
+      /* Animation */
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+
+    .zoom:hover {
+      transform: scale(1.5);
+    }
   </style>
 </head>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="/" class="navbar-brand" >PC <b>Express</b></a>  		
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="/" class="navbar-brand">PC <b>Express</b></a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-      <div class="navbar-nav">
-        <a href="/" class="nav-item nav-link active">Home</a>
-        <a href="/products" class="nav-item nav-link">Products</a>
-        <% if (typeof name != "undefined") { %>
+  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+    <div class="navbar-nav">
+      <a href="/" class="nav-item nav-link active">Home</a>
+      <a href="/products" class="nav-item nav-link">Products</a>
+      <% if (typeof name !="undefined" ) { %>
         <a href="/orders" class="nav-item nav-link">Orders</a>
         <% } %>
-          </div>
-      <form class="navbar-form form-inline">
-        <div class="input-group search-box">								
-          <input type="text" id="search" class="form-control" placeholder="Search here...">
-          <div class="input-group-append">
-            <span class="input-group-text"><i class="material-icons">&#xE8B6;</i></span>
-          </div>
-        </div>
-      </form>
-      <div class="navbar-nav action-buttons ml-auto">
-        <% if (typeof name != "undefined") { %>
-          <a class="nav-item nav-link" href="/cart/<%= user[0].id %>"><i class='bi bi-cart mt-2 mx-3 text-primary' id="cartNotify" style="font-size:1.25em"></i></a>
-          <a class="nav-item nav-link"><%= name %></a>
-          <a class="nav-item nav-link" href="/logout">Logout</a>
-        <% } else { %>
-          <a href="/login" class="nav-item nav-link ">Login</a>		
-          <a href="/register" class="btn btn-primary">Register</a>
-        <% } %>
-      </div>
     </div>
-  </nav>
-  <br>
-  <div id="page-container">
-    <div id="content-wrap">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://www.amkette.com/wp-content/uploads/2022/06/blogpost_accessories_1-min.png" class="d-block w-100" >
-          </div>
-
-          <div class="carousel-item ">
-              <img src="https://i.ytimg.com/vi/14gcHuPYDnQ/maxresdefault.jpg" class="d-block w-100" >
-          </div>
-
-          <div class="carousel-item">
-            <img src="https://www.cnet.com/a/img/resize/bcbacc4ad119e6f901ff4b7865f1b164f317be5b/hub/2019/11/23/4e21a4ae-cab6-4ea5-ace9-c3d8603ff017/all-parts.jpg?auto=webp&width=1200" class="d-block w-100" >
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+    <form class="navbar-form form-inline" method="post" action="/searchProducts">
+      <div class="input-group">
+        <input type="text" class="form-control w-50" name="search" placeholder="Search via description">
+        <button class="btn btn-secondary" title="Search"><i class="bi bi-search"></i></button>
       </div>
+    </form>
+    <div class="navbar-nav action-buttons ml-auto">
+      <% if (typeof name !="undefined" ) { %>
+        <a class="nav-item nav-link" href="/cart/<%= user[0].id %>"><i class='bi bi-cart mt-2 mx-3 text-primary'
+            id="cartNotify" style="font-size:1.25em"></i></a>
+        <a class="nav-item nav-link">
+          <%= name %>
+        </a>
+        <a class="nav-item nav-link" href="/logout">Logout</a>
+        <% } else { %>
+          <a href="/login" class="nav-item nav-link ">Login</a>
+          <a href="/register" class="btn btn-primary">Register</a>
+          <% } %>
+    </div>
+  </div>
+</nav>
+<br>
+<div id="page-container">
+  <div id="content-wrap">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://www.amkette.com/wp-content/uploads/2022/06/blogpost_accessories_1-min.png"
+            class="d-block w-100">
+        </div>
 
-      <h1 class="d-flex justify-content-center align-items-cente mt-3">Featured Products</h1>
-      <div class="row" style="margin:2em; padding-bottom: 2.5em; position: relative; min-height: 100vh;">
-          <% products.forEach(element => { %>
-            <div class="col-md-3 mt-2" style="margin-top: 5px;">
-            <div class="card" style="width: 18rem;">
-              <div class="zoom">
-                <img
-                  src="images/<%= element.img %>"
-                  class="card-img-top">
-              </div>
-              <center>
+        <div class="carousel-item ">
+          <img src="https://i.ytimg.com/vi/14gcHuPYDnQ/maxresdefault.jpg" class="d-block w-100">
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://www.cnet.com/a/img/resize/bcbacc4ad119e6f901ff4b7865f1b164f317be5b/hub/2019/11/23/4e21a4ae-cab6-4ea5-ace9-c3d8603ff017/all-parts.jpg?auto=webp&width=1200"
+            class="d-block w-100">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <h1 class="d-flex justify-content-center align-items-center mt-3">Featured Products</h1>
+    <div class="row" style="margin:2em; padding-bottom: 2.5em; position: relative; min-height: 100vh;">
+      <% products.forEach(element=> { %>
+        <div class="col-md-3 mt-2" style="margin-top: 5px;">
+          <div class="card" style="width: 18rem;">
+            <div class="zoom">
+              <img src="images/<%= element.img %>" class="card-img-top">
+            </div>
+            <center>
               <div class="card-body">
                 <a style="text-decoration: none; color: #000;" href="/viewProduct/<%= element.id %>">
-                  <h5 class="card-title"><%= element.item_name %></h5>
-                  <p class="card-text"> ₱<%= Intl.NumberFormat('en-US', { style: 'currency',currency: 'TRY'}).format(element.price).slice(4) %></p>
+                  <h5 class="card-title">
+                    <%= element.item_name %>
+                  </h5>
+                  <p class="card-text"> ₱<%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: 'TRY'
+                      }).format(element.price).slice(4) %>
+                  </p>
                   <!-- Stock Left:<small class="text text-muted"><%= element.qty %></small> -->
                   <button href="/viewProduct/<%= element.id %>" class="btn btn-secondary"> View Details</button>
                 </a>
-              </div></center>
-            </div>
-          <% }) %>
+              </div>
+            </center>
+          </div>
         </div>
-      </div>
+        <% }) %>
     </div>
+  </div>
 
-    <div class="footer">
-        <center>
-        <div class="devs" style="background-color: #5765c1;">
-            <h3>Developers</h3>
-            <table class="text-center"  >
-              <td style="padding: 1em;">    
-                <a href="https://www.facebook.com/joshua.yaacoub33" target="_blank" rel="noopener noreferrer" style="color:white;text-decoration: none;">
-                <img src="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-1/319555576_2574943289313631_3793376125912256894_n.jpg?stp=dst-jpg_s200x200&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeEkIzAeu5zCSZLk0GjQ3gipUH3OmT0J3jNQfc6ZPQneM-3bgG-b366NG4T2mvQ3_ArkW9fdNWv754NNwbx3Jwe5&_nc_ohc=QDLl8MgThDMAX9Trubp&_nc_oc=AQk0MIreAohil0HHTyNm-DMU0N84G62MET_fK6A8_hyTgb81yiwvR34e32NVkmSEG_A&_nc_ht=scontent.fcrk1-3.fna&oh=00_AfB74Fyzx--5WZXehRK_wqt4JZwEw-qE2C2faNcYmcQgkg&oe=63DAA1FD" width="50px"height="50px" style="border-radius: 50px;">
-                <p>Joshua Yaacoub</p>
-              </a>
-            </td>
-          
-            <td style="padding: 1em;">   
-              <a href="https://www.facebook.com/Aylvee" target="_blank" rel="noopener noreferrer" style="color:white;text-decoration: none;">
-              <img src="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-1/317981242_3298220570444697_8711803195331308924_n.jpg?stp=dst-jpg_p200x200&_nc_cat=106&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeHnP286Qsvv9YqzUcCsLBtAAvQJGRtAXk0C9AkZG0BeTXg0sVVrkC-AqC6Y9mJ0okjS4cP-SM6avjHB2PH1piHz&_nc_ohc=Al4ElIoGkf0AX-iSXt7&_nc_ht=scontent.fcrk1-3.fna&oh=00_AfByIaxI7obE--0P0nKobIoYvophgBzi6S0bWL7NIWO4Fw&oe=63DB452C" width="50px"height="50px" style="border-radius: 50px;">
+  <div class="footer">
+    <center>
+      <div class="devs" style="background-color: #5765c1;">
+        <h3>Developers</h3>
+        <table class="text-center">
+          <td style="padding: 1em;">
+            <a href="https://www.facebook.com/joshua.yaacoub33" target="_blank" rel="noopener noreferrer"
+              style="color:white;text-decoration: none;">
+              <img
+                src="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-1/319555576_2574943289313631_3793376125912256894_n.jpg?stp=dst-jpg_s200x200&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeEkIzAeu5zCSZLk0GjQ3gipUH3OmT0J3jNQfc6ZPQneM-3bgG-b366NG4T2mvQ3_ArkW9fdNWv754NNwbx3Jwe5&_nc_ohc=QDLl8MgThDMAX9Trubp&_nc_oc=AQk0MIreAohil0HHTyNm-DMU0N84G62MET_fK6A8_hyTgb81yiwvR34e32NVkmSEG_A&_nc_ht=scontent.fcrk1-3.fna&oh=00_AfB74Fyzx--5WZXehRK_wqt4JZwEw-qE2C2faNcYmcQgkg&oe=63DAA1FD"
+                width="50px" height="50px" style="border-radius: 50px;">
+              <p>Joshua Yaacoub</p>
+            </a>
+          </td>
+
+          <td style="padding: 1em;">
+            <a href="https://www.facebook.com/Aylvee" target="_blank" rel="noopener noreferrer"
+              style="color:white;text-decoration: none;">
+              <img
+                src="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-1/317981242_3298220570444697_8711803195331308924_n.jpg?stp=dst-jpg_p200x200&_nc_cat=106&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeHnP286Qsvv9YqzUcCsLBtAAvQJGRtAXk0C9AkZG0BeTXg0sVVrkC-AqC6Y9mJ0okjS4cP-SM6avjHB2PH1piHz&_nc_ohc=Al4ElIoGkf0AX-iSXt7&_nc_ht=scontent.fcrk1-3.fna&oh=00_AfByIaxI7obE--0P0nKobIoYvophgBzi6S0bWL7NIWO4Fw&oe=63DB452C"
+                width="50px" height="50px" style="border-radius: 50px;">
               <p>Aisle Lush Valdez</p>
             </a>
-            </td>
-          
-            <td style="padding: 1em;">  
-              <a href="https://www.facebook.com/Louie.Catabay18/" target="_blank" rel="noopener noreferrer" style="color:white;text-decoration: none;">
-              <img src="https://scontent.fmnl17-4.fna.fbcdn.net/v/t39.30808-6/308628527_5225157554280058_4749364279630053735_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHx7MNK1evKVscoGTSDWZoErlLsLVpo5kquUuwtWmjmSv87VyMdt7OA5WgqH_xm0T3FwYz4SWSwRGcAU6lEjFiY&_nc_ohc=aCrqf0hpgkAAX-w4Uae&_nc_ht=scontent.fmnl17-4.fna&oh=00_AfBbN2P-w4LUN5pMd5zAsJji3x3juFOjUEo5pu5AJrmeBA&oe=63CE1559" width="50px"height="50px" style="border-radius: 50px;">
+          </td>
+
+          <td style="padding: 1em;">
+            <a href="https://www.facebook.com/Louie.Catabay18/" target="_blank" rel="noopener noreferrer"
+              style="color:white;text-decoration: none;">
+              <img
+                src="https://scontent.fmnl17-4.fna.fbcdn.net/v/t39.30808-6/308628527_5225157554280058_4749364279630053735_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHx7MNK1evKVscoGTSDWZoErlLsLVpo5kquUuwtWmjmSv87VyMdt7OA5WgqH_xm0T3FwYz4SWSwRGcAU6lEjFiY&_nc_ohc=aCrqf0hpgkAAX-w4Uae&_nc_ht=scontent.fmnl17-4.fna&oh=00_AfBbN2P-w4LUN5pMd5zAsJji3x3juFOjUEo5pu5AJrmeBA&oe=63CE1559"
+                width="50px" height="50px" style="border-radius: 50px;">
               <br>
               <p>Louie Catabay</p>
             </a>
-            </td>
-            </table>
-            <hr style="border:solid 1px white">
-            Copyright © 2023 All Rights Reserved.
-        </div>
-        </center>
-    </div>
+          </td>
+        </table>
+        <hr style="border:solid 1px white">
+        Copyright © 2023 All Rights Reserved.
+      </div>
+    </center>
+  </div>
 </div>
 </body>
+
 </html>
 
-<% if (typeof user[0] != "undefined") { %>
-  <script>
-    function loadNotification() {
-      let http = new XMLHttpRequest();
-      http.onreadystatechange = function() {
-          if (this.readyState === 4 && this.status === 200) {
-              let countNotification = document.getElementById("cartNotify");
-              let parse = JSON.parse(this.responseText);
-              countNotification.innerHTML =
-                  parseInt(this.responseText) > 99 ? "99+" : parseInt(this.responseText) == 0 ?
-                  countNotification.style.display = "none" :
-                  countNotification.innerHTML = parse[0].cart_notification;
-          }
-      };
-      http.open("GET", "/cartNotification/<%= user[0].id %>", true);
-      http.send();
-    }
-  
-    loadNotification();
-  </script>
+<% if (typeof user[0] !="undefined" ) { %>
+<script>
+  function loadNotification() {
+    let http = new XMLHttpRequest();
+    http.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        let countNotification = document.getElementById("cartNotify");
+        let parse = JSON.parse(this.responseText);
+        countNotification.innerHTML =
+          parseInt(this.responseText) > 99 ? "99+" : parseInt(this.responseText) == 0 ?
+            countNotification.style.display = "none" :
+            countNotification.innerHTML = parse[0].cart_notification;
+      }
+    };
+    http.open("GET", "/cartNotification/<%= user[0].id %>", true);
+    http.send();
+  }
+
+  loadNotification();
+</script>
 <% } %>

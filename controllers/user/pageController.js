@@ -81,8 +81,50 @@ const products = (req, res) => {
   );
 };
 
+const searchProducts = (req, res) => {
+  con.query(
+    "select * from users where email = ?",
+    [req.session.email],
+    (error, user) => {
+      if (error) {
+        reject(error);
+      }
+
+      if (req.body.search.length > 0) {
+        con.query(
+          `select * from products where description like '%${req.body.search}%' `,
+          (error, result) => {
+            if (error) {
+              console.log(error);
+            }
+            res.render("./user/search", {
+              products: result,
+              user: user,
+              name: req.session.name,
+              email: req.session.email,
+            });
+          }
+        );
+      }
+      else {
+        res.render("./user/search", {
+          user: user,
+          name: req.session.name,
+          email: req.session.email,
+        });
+      }
+    }
+  );
+};
+
+const searchProductPage = (req, res) => {
+  res.render("./user/search");
+};
+
 module.exports = {
   userHome,
   viewProduct,
   products,
+  searchProducts,
+  searchProductPage,
 };

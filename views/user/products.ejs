@@ -172,12 +172,10 @@
       <% } %>
     </div>
 
-    <form class="navbar-form form-inline">
-      <div class="input-group search-box">
-        <input type="text" id="search" class="form-control" placeholder="Search here...">
-        <div class="input-group-append">
-          <span class="input-group-text"><i class="material-icons">&#xE8B6;</i></span>
-        </div>
+    <form class="navbar-form form-inline" method="post" action="/searchProducts">
+      <div class="input-group">
+        <input type="text" class="form-control" name="search" placeholder="Search via description">
+        <button class="btn btn-secondary" title="Search"><i class="bi bi-search"></i></button>
       </div>
     </form>
     <div class="navbar-nav action-buttons ml-auto">

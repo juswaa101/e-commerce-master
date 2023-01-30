@@ -168,12 +168,10 @@
       <a href="/products" class="nav-item nav-link ">Products</a>
       <a href="/orders" class="nav-item nav-link active">Orders</a>
     </div>
-    <form class="navbar-form form-inline">
-      <div class="input-group search-box">
-        <input type="text" id="search" class="form-control" placeholder="Search here...">
-        <div class="input-group-append">
-          <span class="input-group-text"><i class="material-icons">&#xE8B6;</i></span>
-        </div>
+    <form class="navbar-form form-inline" method="post" action="/searchProducts">
+      <div class="input-group">
+        <input type="text" class="form-control" name="search" placeholder="Search via description">
+        <button class="btn btn-secondary" title="Search"><i class="bi bi-search"></i></button>
       </div>
     </form>
     <div class="navbar-nav action-buttons ml-auto">
@@ -197,7 +195,7 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="/completedOrders">Completed Orders</a>
+    <a class="dropdown-item" href="/completedOrders">Approved Orders</a>
     <a class="dropdown-item" href="/cancelledOrders">Cancelled Orders</a>
   </div>
 </div>
@@ -207,7 +205,7 @@
   <div id="content-wrap">
     <div class="row" style="margin:2em; padding-bottom: 2.5em; position: relative; min-height: 100vh;">
       <% orders.forEach(element => { %>
-        <div class="col-md-3 mt-3" style="margin-top: 5px;">
+        <div class="col-md-3 d-flex align-items-stretch mt-3" style="margin-top: 5px;">
           <div class="card" style="width: 18rem;">
             <div class="zoom">
               <img
