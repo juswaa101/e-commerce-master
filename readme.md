@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # How to install the project
 
 1. Clone the repository by typing in your terminal:
