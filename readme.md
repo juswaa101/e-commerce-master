@@ -13,3 +13,9 @@ filename is e-commerce.sql
 5. Type command nodemon app or node app.js in the terminal.
 
 6. Open browser and type localhost:3000
+
+Default Admin Credentials and Address
+localhost:3000/admin
+
+Email: admin@gmail.com
+Password: admin123
