@@ -8,6 +8,8 @@ filename is e-commerce.sql
 
 3. Open the project in any preferred ide and open terminal within the project.
 
-4. Type command nodemon app or node app.js in the terminal.
+4. Run npm install to install dependecies.
 
-5. Open browser and type localhost:3000
+5. Type command nodemon app or node app.js in the terminal.
+
+6. Open browser and type localhost:3000
